@@ -1,20 +1,25 @@
+var accessToken = 'aa948f9d807764d3839cf30e0b327db1956b984f';
+
+var baseUrl = 'https://api.github.com/users/PiotrBerebecki/orgs?access_token='
+
+
 var githubHandles = [
   "Akin909",
   "alexis-l8",
   "antoniotrkdz",
-  "bo-bok",
-  "ConchobarMacNessa",
-  "finnhodgkin",
-  "joeylouise",
-  "lucyrose93",
-  "majakudlicka",
-  "oliverjam",
-  "pbywater",
-  "PiotrBerebecki",
-  "Samatar26",
-  "smarthutza",
-  "yvonne-liu",
-  "ZooeyMiller"
+  // "bo-bok",
+  // "ConchobarMacNessa",
+  // "finnhodgkin",
+  // "joeylouise",
+  // "lucyrose93",
+  // "majakudlicka",
+  // "oliverjam",
+  // "pbywater",
+  // "PiotrBerebecki",
+  // "Samatar26",
+  // "smarthutza",
+  // "yvonne-liu",
+  // "ZooeyMiller"
 ];
 
 // TO DO: put your github access token here
@@ -69,8 +74,19 @@ function getUser(username, cb) {
 // this function should only return something when all the data has been retrieved from the API!
 
 function getAllUsers(arr, cb) {
-  // your function here!
+  var users = [];
+
+  arr.forEach(function(element, index) {
+    getUser(element, function(userObj) {
+      users.push(userObj);
+
+      if (index === arr.length - 1) {
+        cb(users);
+      }
+    });
+  });
 }
+
 
 // TO DO: bonus - make sure the users are sorted in order of the number people they're following
 // adapt the final callback below to include this new function!
