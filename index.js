@@ -1,4 +1,4 @@
-var accessToken = 'aa948f9d807764d3839cf30e0b327db1956b984f';
+var accessToken = 'aa...';
 
 var baseUrl = 'https://api.github.com/users/PiotrBerebecki/orgs?access_token='
 
